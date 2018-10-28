@@ -1,0 +1,13 @@
+.forums-container .media {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.forums-container .media img {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  background: #000;
+  margin-right: 10px;
+}
