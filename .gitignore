@@ -1,5 +1,12 @@
 
-# Created by https://www.gitignore.io/api/git,macos,windows,intellij
+# Created by https://www.gitignore.io/api/git,macos,windows,intellij,visualstudiocode
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
