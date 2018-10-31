@@ -1,0 +1,40 @@
+.buddy-system-container .media {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buddy-system-container .media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.buddy-system-container .media .media-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.buddy-system-container label {
+  margin: 0;
+}
+
+.buddy-system-container .flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buddy-system-container .flex-row label {
+  margin-right: 5px;
+}
+
+.buddy-system-container .media button {
+  height: fit-content;
+}

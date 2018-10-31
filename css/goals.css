@@ -1,0 +1,25 @@
+.goals-container button {
+  height: 90%;
+  max-width: 100%;
+}
+
+.goals-container ul .row {
+  margin-bottom: 10px;
+}
+
+.goals-container ul {
+  margin-bottom: 10px;
+}
+
+.goals-container ul .col,
+.col-1 {
+  margin-right: 10px;
+}
+
+.goals-container ul .col-2 {
+  margin-left: 10px;
+}
+
+.goals-container .row .form-group {
+  padding-left: 0;
+}
