@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Buddy System</title>
+	<link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css"
+	 rel="stylesheet">
+	<link rel="stylesheet"
+	 href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href="css/style.css"
+	 rel="stylesheet">
+	<link href="css/buddy-system.css"
+	 rel="stylesheet">
+</head>
+
+<body>
+
+	<nav id="header"></nav>
+
+	<div class="container buddy-system-container body-section">
+		<div class="row justify-content-center">
+			<div class="col-10">
+				<h1 class="text-center">Buddy System</h1>
+				<div class="form-group">
+					<input class="form-control"
+					 type="text"
+					 id="city-input"
+					 placeholder="Enter your city..." />
+				</div>
+
+				<div class="row">
+					<div class="col-3">
+						<div class="form-group flex-row">
+							<label for="exampleFormControlSelect1">Distance</label>
+							<select class="form-control"
+							 id="exampleFormControlSelect1">
+								<option>
+									< 10
+									 miles</option>
+									 <option>
+										< 100
+										 miles</option>
+										 <option>> 100 miles
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="form-group flex-row">
+							<label for="exampleFormControlSelect1">Gender</label>
+							<select class="form-control"
+							 id="exampleFormControlSelect1">
+								<option>All</option>
+								<option>Male</option>
+								<option>Female</option>
+							</select>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<input class="form-control"
+							 type="text"
+							 placeholder="Enter name...">
+						</div>
+					</div>
+				</div>
+
+				<div class="media">
+					<img class="mr-3"
+					 src="./images/test.jpg"
+					 alt="placeholder">
+					<div class="media-body">
+						<div class="info">
+							<h5>Name</h5>
+							<h5>Short Info</h5>
+							<h5>Address</h5>
+						</div>
+						<button class="btn btn-primary">Send Message</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+	<script src="https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
+	<script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="./js/template.js"></script>
+	<script src="./js/buddy-system.js"></script>
+</body>
+
+</html>
