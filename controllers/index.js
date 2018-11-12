@@ -22,9 +22,23 @@ const getForums = (req, res) => {
   });
 }
 
+const getGoals = (req, res) => {
+  res.render('pages/goals', {
+    page: 'goals'
+  });
+}
+
+const getSchedule = (req, res) => {
+  res.render('pages/schedule', {
+    page: 'schedule'
+  });
+}
+
 module.exports = {
   getHome,
   getCompetition,
   getBuddySystem,
-  getForums
+  getForums,
+  getGoals,
+  getSchedule
 }
