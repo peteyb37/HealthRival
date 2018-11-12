@@ -16,8 +16,15 @@ const getBuddySystem = (req, res) => {
   });
 }
 
+const getForums = (req, res) => {
+  res.render('pages/forums', {
+    page: 'forums'
+  });
+}
+
 module.exports = {
   getHome,
   getCompetition,
-  getBuddySystem
+  getBuddySystem,
+  getForums
 }
