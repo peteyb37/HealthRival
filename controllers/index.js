@@ -34,11 +34,21 @@ const getSchedule = (req, res) => {
   });
 }
 
+const getSignIn = (req, res) => {
+  res.render('pages/signin');
+}
+
+const getSignUp = (req, res) => {
+  res.render('pages/signup');
+}
+
 module.exports = {
   getHome,
   getCompetition,
   getBuddySystem,
   getForums,
   getGoals,
-  getSchedule
+  getSchedule,
+  getSignIn,
+  getSignUp
 }

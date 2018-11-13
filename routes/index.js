@@ -7,4 +7,6 @@ module.exports = app => {
   app.get('/forums', controller.getForums);
   app.get('/goals', controller.getGoals);
   app.get('/schedule', controller.getSchedule);
+  app.get('/signin', controller.getSignIn);
+  app.get('/signup', controller.getSignUp);
 };
