@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  addSortable();
+
   $('#add-goal-button').click(function () {
     var newGoal = $('#new-goal-input').val();
     $.post('api/goals/new', {
@@ -41,4 +43,18 @@ function updateGoal(goalId, value) {
   }).catch((error) => {
     console.log(error);
   });
+}
+
+function addSortable() {
+  $("#goal-list").sortable({
+    stop: function (event, ui) {
+      console.log(event);
+      console.log(ui);
+    }
+  });
+  $("#goal-list").disableSelection();
+}
+
+function updatePosition() {
+  console.log('finsihed');
 }
