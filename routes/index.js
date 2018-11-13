@@ -1,12 +1,11 @@
 const controller = require('../controllers');
+const routes = require('express').Router();
 
-module.exports = app => {
-  app.get('/', controller.getHome);
-  app.get('/competition', controller.getCompetition);
-  app.get('/buddy-system', controller.getBuddySystem);
-  app.get('/forums', controller.getForums);
-  app.get('/goals', controller.getGoals);
-  app.get('/schedule', controller.getSchedule);
-  app.get('/signin', controller.getSignIn);
-  app.get('/signup', controller.getSignUp);
-};
+routes.get('/', controller.getHome);
+routes.get('/competition', controller.getCompetition);
+routes.get('/buddy-system', controller.getBuddySystem);
+routes.get('/forums', controller.getForums);
+routes.get('/goals', controller.getGoals);
+routes.get('/schedule', controller.getSchedule);
+
+module.exports = routes;

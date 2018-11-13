@@ -34,14 +34,6 @@ const getSchedule = (req, res) => {
   });
 }
 
-const getSignIn = (req, res) => {
-  res.render('pages/signin');
-}
-
-const getSignUp = (req, res) => {
-  res.render('pages/signup');
-}
-
 module.exports = {
   getHome,
   getCompetition,
@@ -49,6 +41,4 @@ module.exports = {
   getForums,
   getGoals,
   getSchedule,
-  getSignIn,
-  getSignUp
 }
