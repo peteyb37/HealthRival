@@ -1,13 +1,14 @@
 $(document).ready(function () {
-
   $('#add-goal-button').click(function () {
     var newGoal = $('#new-goal-input').val();
-    if (newGoal && newGoal.trim()) {
+    $.post('/goals/new', {
+      title: newGoal.trim()
+    }, (data) => {
       $('#goal-list').append(`<div class="row align-items-center">
-        <button class="col-1 btn btn-danger">
+        <button onclick="deleteGoal('${data.id}')" class="col-1 btn btn-danger">
           Delete</button>
         <li class="col list-group-item">
-          ${newGoal.trim()}
+          ${data.title}
         </li>
         <div class="col-2 form-check">
           <input class="form-check-input"
@@ -21,6 +22,10 @@ $(document).ready(function () {
         </div>
       </div>`);
       $('#new-goal-input').val("");
-    }
+    });
   });
 });
+
+function deleteGoal(goalId) {
+  console.log(goalId);
+}

@@ -1,3 +1,6 @@
+const goals = require('../services/goals');
+const authentication = require('../services/authentication');
+
 const getHome = (req, res) => {
   res.render('index', {
     page: 'home'
@@ -22,9 +25,15 @@ const getForums = (req, res) => {
   });
 }
 
-const getGoals = (req, res) => {
-  res.render('pages/goals', {
-    page: 'goals'
+const getGoals = (req, res, next) => {
+  const userId = authentication.currentUser().uid;
+  goals.getGoals(userId).then((result) => {
+    res.render('pages/goals', {
+      page: 'goals',
+      goals: result
+    });
+  }).catch(error => {
+    next(error);
   });
 }
 
