@@ -7,8 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "gulp": "gulp"
+    "dev": "gulp"
   },
   "dependencies": {
     "ejs": "^2.6.1",
