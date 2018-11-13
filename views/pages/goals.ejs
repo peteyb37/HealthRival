@@ -23,7 +23,7 @@
     <h1 class="text-center">Goals</h1>
     <ul id="goal-list" class="list-group">
       <% for(var i = 0; i < goals.length; i++) { %>
-      <div class="row align-items-center">
+      <div id="<%= goals[i].id %>" class="row align-items-center">
         <button onclick="deleteGoal('<%= goals[i].id %>')" class="col-1 btn btn-danger">
           Delete</button>
         <li class="col list-group-item">
@@ -31,12 +31,14 @@
         </li>
         <div class="col-2 form-check">
           <% if (goals[i].done) { %>
-          <input class="form-check-input" type="checkbox" value="bike" checked id="defaultCheck1">
+          <input onchange="updateGoal('<%= goals[i].id %>', false)" class="form-check-input" type="checkbox" value="bike"
+                 checked id="defaultCheck1">
           <label class="form-check-label" for="defaultCheck1">
             Done
           </label>
           <% } else { %>
-          <input class="form-check-input" type="checkbox" value="bike" id="defaultCheck1">
+          <input onchange="updateGoal('<%= goals[i].id %>', true)" class="form-check-input" type="checkbox" value="bike"
+                 id="defaultCheck1">
           <label class="form-check-label" for="defaultCheck1">
             Not Done
           </label>

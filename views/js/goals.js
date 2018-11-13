@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('#add-goal-button').click(function () {
     var newGoal = $('#new-goal-input').val();
-    $.post('/goals/new', {
+    $.post('api/goals/new', {
       title: newGoal.trim()
     }, (data) => {
       $('#goal-list').append(`<div class="row align-items-center">
@@ -27,5 +27,18 @@ $(document).ready(function () {
 });
 
 function deleteGoal(goalId) {
-  console.log(goalId);
+  axios.delete(`/api/goals/${goalId}`).then(() => {
+    $(`#${goalId}`).remove();
+  }).catch(error => console.log(error));
+}
+
+function updateGoal(goalId, value) {
+  axios.patch(`/api/goals/${goalId}`, {
+    done: value
+  }).then(() => {
+    const text = value ? 'Done' : 'Not Done';
+    $(`#${goalId} .form-check-label`).text(text);
+  }).catch((error) => {
+    console.log(error);
+  });
 }

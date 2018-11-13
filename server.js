@@ -16,6 +16,6 @@ app.set('view engine', 'ejs');
 
 app.use('/', authRoutes);
 app.use('/', authMiddlewares.requiredAuth, routes);
-app.use('/', authMiddlewares.requiredAuth, goalRoutes);
+app.use('/api', authMiddlewares.requiredAuth, goalRoutes);
 
 app.listen(5000);

@@ -55,6 +55,16 @@ class Goal {
       });
     });
   }
+
+  updateGoal(goalId, values) {
+    return new Promise((resolve, reject) => {
+      this.db.doc(goalId).update(values).then(() => {
+        resolve();
+      }).catch(error => {
+        reject(error);
+      });
+    });
+  }
 }
 
 module.exports = new Goal();
