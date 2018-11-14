@@ -2,7 +2,7 @@ const goals = require('../services/goals');
 const authentication = require('../services/authentication');
 
 const getHome = (req, res) => {
-  res.render('index', {
+  res.render('pages/home', {
     page: 'home'
   });
 }

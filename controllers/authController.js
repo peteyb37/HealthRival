@@ -55,8 +55,17 @@ const signOut = (req, res) => {
   });
 }
 
+const updateUser = (req, res, next) => {
+  authetication.updateUser(req.body).then(() => {
+    res.send(`update user values ${JSON.stringify(req.body)}`)
+  }).catch(error => {
+    next(error);
+  });
+}
+
 module.exports = {
   getSignIn,
   getSignUp,
-  signOut
+  signOut,
+  updateUser
 }
