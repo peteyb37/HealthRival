@@ -1,7 +1,7 @@
 {
   "name": "health-rival",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "repository": "https://github.com/peteyb37/HealthRival.git",
   "author": "Team 2",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "dev": "gulp"
   },
   "dependencies": {
