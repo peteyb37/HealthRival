@@ -6,7 +6,8 @@
   "author": "Team 2",
   "license": "MIT",
   "engines": {
-    "node": "10.x"
+    "node": "10.x",
+    "npm": "6.x"
   },
   "scripts": {
     "start": "node index.js",
