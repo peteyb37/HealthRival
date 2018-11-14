@@ -1,0 +1,29 @@
+{
+  "name": "health-rival",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/peteyb37/HealthRival.git",
+  "author": "Team 2",
+  "license": "MIT",
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "gulp"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "firebase": "^5.5.8",
+    "nodemon": "^1.18.6"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.4.1"
+  }
+}
