@@ -262,7 +262,6 @@ $(document).ready(function () {
   {'city': 'Azle', 'state': 'Texas'},
   {'city': 'Aztec', 'state': 'New Mexico'},
   {'city': 'Azusa', 'state': 'California'},
-  
 {'city': 'Babylon', 'state': 'New York'},
 {'city': 'Babylon', 'state': 'New York'},
 {'city': 'Back Mountain', 'state': 'Pennsylvania'},
@@ -698,7 +697,6 @@ $(document).ready(function () {
 {'city': 'Butte-Silver Bow', 'state': 'Montana'},
 {'city': 'Buxton', 'state': 'Maine'},
 {'city': 'Byram', 'state': 'Mississippi'},
-  
 {'city': 'Cabot', 'state': 'Arkansas'},
 {'city': 'Cadillac', 'state': 'Michigan'},
 {'city': 'Cahokia', 'state': 'Illinois'},
@@ -1210,7 +1208,6 @@ $(document).ready(function () {
 {'city': 'Cypress', 'state': 'California'},
 {'city': 'Cypress Gardens', 'state': 'Florida'},
 {'city': 'Cypress Lake', 'state': 'Florida'},
-  
 {'city': 'D’Iberville', 'state': 'Mississippi'},
 {'city': 'Dade City', 'state': 'Florida'},
 {'city': 'Dale City', 'state': 'Virginia'},
@@ -1395,7 +1392,7 @@ $(document).ready(function () {
 {'city': 'Duxbury', 'state': 'Massachusetts'},
 {'city': 'Dyer', 'state': 'Indiana'},
 {'city': 'Dyersburg', 'state': 'Tennessee'},
-  {'city': 'Eagan', 'state': 'Minnesota'},
+{'city': 'Eagan', 'state': 'Minnesota'},
 {'city': 'Eagle', 'state': 'Idaho'},
 {'city': 'Eagle Mountain', 'state': 'Texas'},
 {'city': 'Eagle Pass', 'state': 'Texas'},
@@ -5389,7 +5386,7 @@ $(document).ready(function () {
 {'city': 'Tyler', 'state': 'Texas'},
 {'city': 'Tyngsborough', 'state': 'Massachusetts'},
 {'city': 'Tysons Corner', 'state': 'Virginia'},
-  {'city': 'Ukiah', 'state': 'California'},
+{'city': 'Ukiah', 'state': 'California'},
 {'city': 'Ulster', 'state': 'New York'},
 {'city': 'Union', 'state': 'South Carolina'},
 {'city': 'Union', 'state': 'New York'},
@@ -5425,7 +5422,7 @@ $(document).ready(function () {
 {'city': 'Utica', 'state': 'New York'},
 {'city': 'Uvalde', 'state': 'Texas'},
 {'city': 'Uxbridge', 'state': 'Massachusetts'},
-  {'city': 'Vacaville', 'state': 'California'},
+{'city': 'Vacaville', 'state': 'California'},
 {'city': 'Vadnais Heights', 'state': 'Minnesota'},
 {'city': 'Valdosta', 'state': 'Georgia'},
 {'city': 'Valinda', 'state': 'California'},
@@ -5946,8 +5943,8 @@ $(document).ready(function () {
 {'city': 'Wyoming', 'state': 'Michigan'},
 {'city': 'Wyomissing', 'state': 'Pennsylvania'},
 {'city': 'Wytheville', 'state': 'Virginia'},
-  {'city': 'Xenia', 'state': 'Ohio'},
-  {'city': 'Yakima', 'state': 'Washington'},
+{'city': 'Xenia', 'state': 'Ohio'},
+{'city': 'Yakima', 'state': 'Washington'},
 {'city': 'Yankton', 'state': 'South Dakota'},
 {'city': 'Yardville-Groveville', 'state': 'New Jersey'},
 {'city': 'Yarmouth', 'state': 'Maine'},
@@ -5975,13 +5972,13 @@ $(document).ready(function () {
 {'city': 'Yukon', 'state': 'Oklahoma'},
 {'city': 'Yulee', 'state': 'Florida'},
 {'city': 'Yuma', 'state': 'Arizona'},
-  {'city': 'Zachary', 'state': 'Louisiana'},
+{'city': 'Zachary', 'state': 'Louisiana'},
 {'city': 'Zanesville', 'state': 'Ohio'},
 {'city': 'Zephyrhills', 'state': 'Florida'},
 {'city': 'Zion', 'state': 'Illinois'},
 {'city': 'Zionsville', 'state': 'Indiana'},
 {'city': 'Zuni Pueblo', 'state': 'New Mexico'},
-  ];
+];
   var MAX_LENGTH = 10;
 
   $('#city-input').on('input', function (e) {
