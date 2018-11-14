@@ -1,6 +1,5 @@
 $(document).ready(function () {
   if (!localStorage.getItem('location')) {
-    console.log('do not have location')
     axios.get('http://ip-api.com/json').then(response => {
       const {
         data: {
@@ -18,7 +17,5 @@ $(document).ready(function () {
     }).catch((error) => {
       console.log(error);
     });
-  } else {
-    console.log('has location')
   }
 });
