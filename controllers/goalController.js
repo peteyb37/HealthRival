@@ -4,7 +4,6 @@ const authentication = require('../services/authentication');
 const getGoals = (req, res, next) => {
   const userId = authentication.currentUser().uid;
   goals.getGoals(userId).then((result) => {
-    console.log(result);
     res.send(result);
   }).catch(error => {
     next(error);
@@ -14,9 +13,11 @@ const getGoals = (req, res, next) => {
 const addGoal = (req, res) => {
   const {
     title,
+    index
   } = req.body;
   const userId = authentication.currentUser().uid;
-  goals.addNewGoal(userId, title).then(result => {
+
+  goals.addNewGoal(userId, title, index).then(result => {
     res.send(result);
   }).catch(error => {
     next(error);

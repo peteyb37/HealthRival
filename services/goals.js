@@ -21,24 +21,28 @@ class Goal {
             id: doc.id
           });
         });
-        resolve(goals);
+        resolve(goals.sort((obj1, obj2) => {
+          return obj1.index - obj2.index
+        }));
       }).catch(error => {
         reject(error);
       });
     })
   }
 
-  addNewGoal(userId, title) {
+  addNewGoal(userId, title, index) {
     return new Promise((resolve, reject) => {
       this.db.add({
         title,
         done: false,
         userId,
+        index
       }).then((result) => {
         resolve({
           id: result.id,
           title,
-          done: false
+          done: false,
+          index
         });
       }).catch(error => {
         reject(error);

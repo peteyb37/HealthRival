@@ -3,8 +3,12 @@ $(document).ready(function () {
 
   $('#add-goal-button').click(function () {
     var newGoal = $('#new-goal-input').val();
+    var length = $('#goal-list .row').length;
+    console.log(length);
+
     $.post('api/goals/new', {
-      title: newGoal.trim()
+      title: newGoal.trim(),
+      index: length + 1
     }, (data) => {
       $('#goal-list').append(`<div class="row align-items-center">
         <button onclick="deleteGoal('${data.id}')" class="col-1 btn btn-danger">
@@ -47,14 +51,16 @@ function updateGoal(goalId, value) {
 
 function addSortable() {
   $("#goal-list").sortable({
-    stop: function (event, ui) {
-      console.log(event);
-      console.log(ui);
-    }
+    stop: updatePosition
   });
   $("#goal-list").disableSelection();
 }
 
 function updatePosition() {
-  console.log('finsihed');
+  $('#goal-list .row').each(i => {
+    const id = $('#goal-list .row').get(i).id;
+    axios.patch(`/api/goals/${id}`, {
+      index: i
+    });
+  });
 }
