@@ -1,11 +1,14 @@
 const firebase = require('firebase');
+
+const keys = require('../config');
+
 const config = {
-  apiKey: "AIzaSyAJN1R7Hnb-O5TCgIFhS0oeUGAi-o4Z-f8",
-  authDomain: "health-rival.firebaseapp.com",
-  databaseURL: "https://health-rival.firebaseio.com",
-  projectId: "health-rival",
-  storageBucket: "health-rival.appspot.com",
-  messagingSenderId: "487114544631"
+  apiKey: keys.firebaseApiKey,
+  authDomain: keys.firebaseAuthDomain,
+  databaseURL: keys.firebaseDataBaseURL,
+  projectId: keys.projectId,
+  storageBucket: keys.storageBucket,
+  messagingSenderId: keys.messagingSenderId
 };
 firebase.initializeApp(config);
 
