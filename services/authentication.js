@@ -1,7 +1,5 @@
 const firebase = require('./firebase');
-const {
-  Promise
-} = require('bluebird');
+const { Promise } = require('bluebird');
 
 class Authentication {
   currentUser() {
@@ -11,16 +9,26 @@ class Authentication {
 
   signin(email, password) {
     return new Promise((resolve, reject) => {
-      firebase.auth()
-        .signInWithEmailAndPassword(email, password)
-        .then(() => resolve())
-        .catch(error => reject(error));
+      firebase
+        .auth()
+        .setPersistence(firebase.auth.Auth.Persistence.NONE)
+        .then(() => {
+          firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(result => resolve(result.user))
+            .catch(error => reject(error));
+        });
     });
   }
 
   signOut() {
     return new Promise((resolve, reject) => {
-      firebase.auth().signOut().then(() => resolve()).catch(error => reject(error));
+      firebase
+        .auth()
+        .signOut()
+        .then(() => resolve())
+        .catch(error => reject(error));
     });
   }
 
@@ -29,7 +37,8 @@ class Authentication {
       if (password !== password2) {
         reject(new Error('Password does not match'));
       }
-      firebase.auth()
+      firebase
+        .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(() => resolve())
         .catch(error => reject(error));
@@ -39,11 +48,15 @@ class Authentication {
   updateUser(values) {
     return new Promise((resolve, reject) => {
       const userId = this.currentUser().uid;
-      this.db.doc(userId).set(values).then(() => {
-        resolve();
-      }).catch(error => {
-        reject(error);
-      });
+      this.db
+        .doc(userId)
+        .set(values)
+        .then(() => {
+          resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 }

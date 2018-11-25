@@ -1,8 +1,5 @@
-const authentication = require('../services/authentication');
-
 const requiredAuth = (req, res, next) => {
-  if (authentication.currentUser()) {
-    req.user = authentication.currentUser();
+  if (req.session.userId) {
     return next();
   }
 

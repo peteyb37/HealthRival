@@ -1,7 +1,7 @@
 const goals = require('../services/goals');
 
 const getGoals = (req, res, next) => {
-  const userId = req.user.uid;
+  const userId = req.session.userId;
   goals
     .getGoals(userId)
     .then(result => {
@@ -14,7 +14,7 @@ const getGoals = (req, res, next) => {
 
 const addGoal = (req, res) => {
   const { title, index } = req.body;
-  const userId = req.user.uid;
+  const userId = req.session.userId;
 
   goals
     .addNewGoal(userId, title, index)

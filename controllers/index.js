@@ -25,7 +25,7 @@ const getForums = (req, res) => {
 };
 
 const getGoals = (req, res, next) => {
-  const userId = req.user.uid;
+  const userId = req.session.userId;
   goals
     .getGoals(userId)
     .then(result => {
