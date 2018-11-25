@@ -5981,26 +5981,18 @@ $(document).ready(function () {
 ];
   var MAX_LENGTH = 10;
 
+  var friendList = [];
+
   $("#city-input").autocomplete({
     select: (event, ui) => {
       event.preventDefault();
       const { label, value: { city, state } } = ui.item;
       $("#city-input").val(label);
       axios.post('api/users/find', { city, state }).then((response) => {
+        friendList = response.data;
+        updateFriendList();
         response.data.forEach(user => {
-          const { firstName, lastName, city, state } = user;
-          $('#buddy-user-list').append(`
-            <div class="media">
-              <img class="mr-3" src="./images/test.jpg" alt="placeholder">
-              <div class="media-body">
-                <div class="info">
-                  <h5>${firstName} ${lastName}</h5>
-                  <h5>${city}, ${state}</h5>
-                </div>
-                <button class="btn btn-primary">Send Message</button>
-              </div>
-            </div>
-          `);
+          addAFriendToList(user);
         });
       });
     }
@@ -6019,7 +6011,20 @@ $(document).ready(function () {
         }
       }
       autoComplete(filteredCities);
-    }, 300);
+    }, 200);
+  });
+
+  $('#buddy-system-name').on('input', function (e) {
+    setTimeout(function () {
+      updateFriendList();
+
+      for (const friend of friendList) {
+        const name = `${friend.firstName} ${friend.lastName}`
+        if (name.toLowerCase().includes(e.target.value.toLowerCase())) {
+          addAFriendToList(friend);
+        }
+      }
+    }, 200);
   });
 });
 
@@ -6029,4 +6034,24 @@ function autoComplete(filteredCities) {
       resolve(filteredCities);
     },
   });
+}
+
+function addAFriendToList(user) {
+  const { firstName, lastName, city, state } = user;
+  $('#buddy-user-list').append(`
+    <div class="media">
+      <img class="mr-3" src="./images/test.jpg" alt="placeholder">
+      <div class="media-body">
+        <div class="info">
+          <h5>${firstName} ${lastName}</h5>
+          <h5>${city}, ${state}</h5>
+        </div>
+        <button class="btn btn-primary">Send Message</button>
+      </div>
+    </div>
+  `);
+}
+
+function updateFriendList() {
+  $('#buddy-user-list .media').remove();
 }
