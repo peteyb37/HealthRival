@@ -8,6 +8,7 @@ const keys = require('./config');
 const routes = require('./routes');
 const authRoutes = require('./routes/authRoutes');
 const goalRoutes = require('./routes/goalRoutes');
+const buddyRoutes = require('./routes/buddyRoutes');
 const authMiddlewares = require('./middlewares/authMiddlewares');
 
 app.use(bodyParser.json());
@@ -20,7 +21,7 @@ app.use(
   session({
     secret: keys.sessionSecret,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { maxAge: 30 * 24 * 60 * 60 * 1000, secure: false }
   })
 );
@@ -30,5 +31,6 @@ app.set('view engine', 'ejs');
 app.use('/', authRoutes);
 app.use('/', authMiddlewares.requiredAuth, routes);
 app.use('/api', authMiddlewares.requiredAuth, goalRoutes);
+app.use('/api', authMiddlewares.requiredAuth, buddyRoutes);
 
 app.listen(process.env.PORT || 5000);

@@ -5981,13 +5981,38 @@ $(document).ready(function () {
 ];
   var MAX_LENGTH = 10;
 
+  $("#city-input").autocomplete({
+    select: (event, ui) => {
+      event.preventDefault();
+      const { label, value: { city, state } } = ui.item;
+      $("#city-input").val(label);
+      axios.post('api/users/find', { city, state }).then((response) => {
+        response.data.forEach(user => {
+          const { firstName, lastName, city, state } = user;
+          $('#buddy-user-list').append(`
+            <div class="media">
+              <img class="mr-3" src="./images/test.jpg" alt="placeholder">
+              <div class="media-body">
+                <div class="info">
+                  <h5>${firstName} ${lastName}</h5>
+                  <h5>${city}, ${state}</h5>
+                </div>
+                <button class="btn btn-primary">Send Message</button>
+              </div>
+            </div>
+          `);
+        });
+      });
+    }
+  });
+
   $('#city-input').on('input', function (e) {
     var filteredCities = [];
     
     setTimeout(function () {
       for (const usaCity of usaCities) {
         if (usaCity.city.toLowerCase().includes(e.target.value.toLowerCase())) {
-          filteredCities.push(usaCity.city + ', ' + usaCity.state);
+          filteredCities.push({ label: `${usaCity.city}, ${usaCity.state}`, value: usaCity });
           if (filteredCities.length === MAX_LENGTH) {
             break;
           }
@@ -5999,9 +6024,9 @@ $(document).ready(function () {
 });
 
 function autoComplete(filteredCities) {
-  $( "#city-input" ).autocomplete({
+  $("#city-input").autocomplete({
     source: function(request, resolve) {
       resolve(filteredCities);
-    }
+    },
   });
 }

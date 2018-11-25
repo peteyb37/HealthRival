@@ -4,7 +4,6 @@ $(document).ready(function () {
   $('#add-goal-button').click(function () {
     var newGoal = $('#new-goal-input').val();
     var length = $('#goal-list .row').length;
-    console.log(length);
 
     $.post('api/goals/new', {
       title: newGoal.trim(),
