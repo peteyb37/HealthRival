@@ -5,6 +5,7 @@ const {
 
 class Authentication {
   currentUser() {
+    this.db = firebase.firestore().collection('users');
     return firebase.auth().currentUser;
   }
 
@@ -32,6 +33,17 @@ class Authentication {
         .createUserWithEmailAndPassword(email, password)
         .then(() => resolve())
         .catch(error => reject(error));
+    });
+  }
+
+  updateUser(values) {
+    return new Promise((resolve, reject) => {
+      const userId = this.currentUser().uid;
+      this.db.doc(userId).set(values).then(() => {
+        resolve();
+      }).catch(error => {
+        reject(error);
+      });
     });
   }
 }

@@ -6,5 +6,7 @@ routes.post('/signin', controller.getSignIn);
 routes.get('/signup', controller.getSignUp);
 routes.post('/signup', controller.getSignUp);
 routes.get('/signOut', controller.signOut);
+routes.patch('/user/update', controller.updateUser);
+routes.get('/user/position/:longitude/:latitude', controller.getUserPosition);
 
 module.exports = routes;
