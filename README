@@ -4,9 +4,16 @@ Then clone the project and open your favourite command line program to navigate 
 
 Then, you need to create a dev.js file in the config folder. In the dev.js, you must add the following text
 module.exports = {
-  hereAppId: '<ask-doanh-for-app-id>',
-  hereAppCode: '<ask-doanh-for-app-code>',
+  hereAppId: '<ask-doanh>',
+  hereAppCode: '<ask-doanh',
   sessionSecret: '<you can type anything you want here>'
+
+  firebaseApiKey: '<ask-doanh>',
+  firebaseAuthDomain: '<ask-doanh>',
+  firebaseDataBaseURL: '<ask-doanh>',
+  projectId: '<ask-doanh>',
+  storageBucket: '<ask-doanh>',
+  messagingSenderId: ''<ask-doanh>'
 };
 
 Then, npm run dev to start the app on http://localhost:7000

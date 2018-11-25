@@ -3,6 +3,7 @@
 
 .idea
 config/dev.js
+dev.js
 
 ### Node ###
 # Logs
