@@ -1,0 +1,21 @@
+You need to install NodeJs from here https://nodejs.org/en/download/
+ first to run the project
+
+ Then clone the project and open your favourite command line program to navigate to the project
+ Run npm install to install all dependecies
+
+ Then, you need to create a dev.js file in the config folder. In the dev.js, you must add the following text
+ module.exports = {
+  hereAppId: '<ask-doanh-for-app-id>',
+  hereAppCode: '<ask-doanh-for-app-code>',
+  sessionSecret: '<you can type anything you want here>'
+};
+
+Then, npm run dev to start the app on http://localhost:7000
+
+Test account:
+email: test@test.comm
+password: 123123123
+
+email: test2@test.com
+password: 123123123
