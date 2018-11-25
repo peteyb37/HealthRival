@@ -2,6 +2,7 @@
 # Created by https://www.gitignore.io/api/git,macos,windows,intellij,visualstudiocode
 
 .idea
+config/dev.js
 
 ### Node ###
 # Logs
