@@ -2,6 +2,10 @@
   display: none;
 }
 
+#gender {
+  text-transform: capitalize;
+}
+
 .user-items {
   margin-top: 20px;
 }

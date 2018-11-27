@@ -55,6 +55,28 @@ const getUser = (req, res, next) => {
   }
 };
 
+const updateUserProfile = (req, res, next) => {
+  authetication
+    .updateUser(req.body)
+    .then(() => {
+      const userId = req.session.userId;
+      if (userId) {
+        authetication
+          .getUser(userId)
+          .then(user => {
+            res.render('pages/user/user-profile', {
+              page: 'user-profile',
+              user
+            });
+          })
+          .catch(error => next(error));
+      } else {
+        next(new Error('Cannot find userId from session'));
+      }
+    })
+    .catch(error => next(error));
+};
+
 const getSettings = (req, res, next) => {
   res.render('pages/user/settings', {
     page: 'user-settings'
@@ -65,5 +87,6 @@ module.exports = {
   updateUser,
   getUserPosition,
   getUser,
-  getSettings
+  getSettings,
+  updateUserProfile
 };

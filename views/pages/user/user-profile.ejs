@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ../../partials/shared/head %> <% include
-    ../../partials/shared/styles %>
+    <% include ../../partials/shared/head %> 
+    <% include ../../partials/shared/styles %>
     <link href="/css/user/user.css" rel="stylesheet" />
   </head>
 
@@ -12,7 +12,11 @@
     <div class="user-profile-container container body-section">
       <h1 class="text-center">User Profile</h1>
 
-      <form class="user-items row justify-content-center">
+      <form
+        method="POST"
+        action="/user/profile"
+        class="user-items row justify-content-center"
+      >
         <div class="user-avatar-container col-sm-4">
           <img
             class="user-avatar"
@@ -89,10 +93,18 @@
           <div class="row">
             <label for="gender" class="col-sm-2 col-form-label">Gender</label>
             <div class="col">
-              <select class="form-control" id="gender">
-                <option value="unspecified">Unspecified</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+              <select name="gender" class="form-control" id="gender">
+                  <%
+                  var options = [ "unspecified", "male", "female" ];
+                  for ( var i = 0; i < options.length; i++ ) {
+                    if (i === 0) {
+                      var selected = ( !user.gender || user.gender === options[i] ) ? "selected" : "";
+                    } else {
+                      var selected = ( user.gender === options[i] ) ? "selected" : "";
+                    }
+                  %>
+                    <option value="<%=options[ i ] %>" <%=selected %>><%= options[i] %></option>
+                  <%}%>
               </select>
             </div>
           </div>
