@@ -7,7 +7,8 @@
   "license": "MIT",
   "engines": {
     "node": "10.x",
-    "npm": "6.x"
+    "npm": "6.x",
+    "yarn": "1.9.x"
   },
   "scripts": {
     "start": "node index.js",
