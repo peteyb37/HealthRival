@@ -6,6 +6,7 @@ const app = express();
 
 const keys = require('./config');
 const routes = require('./routes');
+const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const goalRoutes = require('./routes/goalRoutes');
 const buddyRoutes = require('./routes/buddyRoutes');
@@ -30,6 +31,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', authRoutes);
 app.use('/', authMiddlewares.requiredAuth, routes);
+app.use('/user', authMiddlewares.requiredAuth, userRoutes);
 app.use('/api', authMiddlewares.requiredAuth, goalRoutes);
 app.use('/api', authMiddlewares.requiredAuth, buddyRoutes);
 

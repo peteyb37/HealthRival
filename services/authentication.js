@@ -2,8 +2,11 @@ const firebase = require('./firebase');
 const { Promise } = require('bluebird');
 
 class Authentication {
-  currentUser() {
+  constructor() {
     this.db = firebase.firestore().collection('users');
+  }
+
+  currentUser() {
     return firebase.auth().currentUser;
   }
 
@@ -50,9 +53,23 @@ class Authentication {
       const userId = this.currentUser().uid;
       this.db
         .doc(userId)
-        .set(values)
+        .update(values)
         .then(() => {
           resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  getUser(userId) {
+    return new Promise((resolve, reject) => {
+      this.db
+        .doc(userId)
+        .get()
+        .then(doc => {
+          resolve(doc.data());
         })
         .catch(error => {
           reject(error);
