@@ -9,25 +9,28 @@
   <body>
     <% include ../../partials/components/header %>
 
-    <div class="container body-section">
+    <div class="user-profile-container container body-section">
       <h1 class="text-center">User Profile</h1>
 
       <div class="user-items row justify-content-center">
-        <div class="col-sm-8">
-          <div class="row">
-            <label class="col-sm-2 col-form-label" for="inputEmail"
-              >Avatar</label
-            >
-            <div class="col">
-              <input
-                name="avatar"
-                type="file"
-                class="form-control-file"
-                accept="image/*"
-                value="test.jpg"
-              />
-            </div>
-          </div>
+        <div class="user-avatar-container col-sm-4">
+          <img
+            class="user-avatar"
+            src="../../images/test.jpg"
+            alt="placeholder"
+          />
+          <button id="avatarInputTrigger" class="btn btn-primary btn-block">
+            Change Avatar
+          </button>
+        </div>
+        <div class="col">
+          <input
+            id="avatarInput"
+            name="avatar"
+            type="file"
+            class="form-control-file"
+            accept="image/*"
+          />
 
           <div class="row">
             <label class="col-sm-2 col-form-label" for="inputEmail"
@@ -106,5 +109,6 @@
     </div>
 
     <% include ../../partials/shared/scripts %>
+    <script src="/js/user/user-profile.js"></script>
   </body>
 </html>

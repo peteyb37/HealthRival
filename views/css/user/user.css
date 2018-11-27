@@ -1,3 +1,37 @@
+#avatarInput {
+  display: none;
+}
+
+.user-items {
+  margin-top: 20px;
+}
+
 .user-items .row {
   margin-bottom: 10px;
+}
+
+.user-profile-container .user-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.user-profile-container .user-avatar-container {
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+.user-profile-container .user-avatar-container:hover button {
+  opacity: 1;
+}
+
+.user-profile-container .user-avatar-container button {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  border-radius: 0;
+  height: 60px;
 }
