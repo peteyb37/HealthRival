@@ -43,3 +43,16 @@
   border-radius: 0;
   height: 60px;
 }
+
+#locate-button {
+  margin-bottom: 10px;
+  color: #0275d8;
+  cursor: pointer;
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border-width: 5px;
+  display: none;
+}

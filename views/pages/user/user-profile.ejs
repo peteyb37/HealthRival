@@ -66,32 +66,6 @@
           </div>
 
           <div class="row">
-            <label class="col-sm-2 col-form-label" for="inputEmail">City</label>
-            <div class="col">
-              <input
-                name="city"
-                type="text"
-                class="form-control"
-                value="<%= user.city %>"
-              />
-            </div>
-          </div>
-
-          <div class="row">
-            <label class="col-sm-2 col-form-label" for="inputEmail"
-              >State</label
-            >
-            <div class="col">
-              <input
-                name="state"
-                type="text"
-                class="form-control"
-                value="<%= user.state %>"
-              />
-            </div>
-          </div>
-
-          <div class="row">
             <label for="gender" class="col-sm-2 col-form-label">Gender</label>
             <div class="col">
               <select name="gender" class="form-control" id="gender">
@@ -110,6 +84,41 @@
             </div>
           </div>
 
+          <div class="row align-items-center">
+            <div class="col row">
+              <label class="col-sm-2 col-form-label" for="inputEmail">City</label>
+              <div class="col">
+                <input
+                  readonly
+                  id="city"
+                  name="city"
+                  type="text"
+                  class="form-control"
+                  value="<%= user.city %>"
+                />
+              </div>
+            </div>
+
+            <div class="col row">
+              <label class="col-sm-2 col-form-label" for="inputEmail"
+                >State</label
+              >
+              <div class="col">
+                <input
+                  readonly
+                  id="state"
+                  name="state"
+                  type="text"
+                  class="form-control"
+                  value="<%= user.state %>"
+                />
+              </div>
+            </div>
+
+            <div id="locate-button" class="col-sm-2">Locate Me</div>
+            <div class="loader"></div> 
+          </div>
+
           <div class="row justify-content-center">
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
@@ -120,6 +129,7 @@
     </div>
 
     <% include ../../partials/shared/scripts %>
+    <script src="/js/home.js"></script>
     <script src="/js/user/user-profile.js"></script>
   </body>
 </html>

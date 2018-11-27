@@ -5,7 +5,7 @@ const keys = require('../config');
 
 const updateUser = (req, res, next) => {
   authetication
-    .updateUser(req.body, res.session.userId)
+    .updateUser(req.body, req.session.userId)
     .then(() => {
       res.send(`update user values ${JSON.stringify(req.body)}`);
     })

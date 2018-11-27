@@ -44,7 +44,7 @@ const getSignUp = (req, res) => {
             .firestore()
             .collection('users')
             .doc(userId)
-            .set({ avatar: DEFAULT_AVATAR })
+            .set({ avatar: DEFAULT_AVATAR, gender: 'unspecified' })
             .then(() => {
               res.redirect('/signin');
             })
