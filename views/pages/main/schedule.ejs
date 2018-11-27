@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../../partials/shared/head %> <% include
+    ../../partials/shared/styles %>
+    <link rel="stylesheet" href="./js/fullcalendar/fullcalendar.css" />
+    <link href="/css/main/schedule.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <% include ../../partials/components/header %>
+
+    <div class="container body-section">
+      <h1 class="text-center">Calendar</h1>
+      <div class="row align-items-center">
+        <div class="col" id="calendar"></div>
+        <div class="col-3">
+          <button id="share-calendar" class="btn btn-primary">
+            Share Calendar
+          </button>
+          <h2>Daily Schedule</h2>
+          <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+        </div>
+      </div>
+
+      <% include ../../partials/components/footer %>
+    </div>
+  </body>
+
+  <% include ../../partials/shared/scripts %>
+  <script src="./js/fullcalendar/lib/jquery.min.js"></script>
+  <script src="./js/fullcalendar/lib/moment.min.js"></script>
+  <script src="./js/fullcalendar/fullcalendar.js"></script>
+  <script src="./js/schedule.js"></script>
+</html>

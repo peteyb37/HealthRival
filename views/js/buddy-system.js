@@ -5991,9 +5991,16 @@ $(document).ready(function () {
       axios.post('api/users/find', { city, state }).then((response) => {
         friendList = response.data;
         updateFriendList();
-        response.data.forEach(user => {
-          addAFriendToList(user);
-        });
+
+        if (response.data.length === 0) {
+          $('#buddy-user-list').append(`
+            <h3 class="no-result text-center">We cannot find any users in ${label}</h3>
+          `)
+        } else {
+          response.data.forEach(user => {
+            addAFriendToList(user);
+          });
+        }
       });
     }
   });
@@ -6054,4 +6061,5 @@ function addAFriendToList(user) {
 
 function updateFriendList() {
   $('#buddy-user-list .media').remove();
+  $('#buddy-user-list .no-result').remove();
 }

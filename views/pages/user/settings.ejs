@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ../../partials/head %> <% include ../../partials/styles %>
+    <% include ../../partials/shared/head %> <% include
+    ../../partials/shared/styles %>
     <link href="/css/user/user.css" rel="stylesheet" />
   </head>
 
   <body>
-    <% include ../../partials/header %>
+    <% include ../../partials/components/header %>
 
     <div class="container body-section">
       <h1 class="text-center">Settings</h1>
@@ -31,9 +32,9 @@
         </div>
       </div>
 
-      <% include ../../partials/footer %>
+      <% include ../../partials/components/footer %>
     </div>
 
-    <% include ../../partials/scripts %>
+    <% include ../../partials/shared/scripts %>
   </body>
 </html>

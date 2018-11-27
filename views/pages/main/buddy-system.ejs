@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ../partials/head %> <% include ../partials/styles %>
+    <% include ../../partials/shared/head %> <% include
+    ../../partials/shared/styles %>
 
-    <link href="css/buddy-system.css" rel="stylesheet" />
+    <link href="/css/main/buddy-system.css" rel="stylesheet" />
   </head>
 
   <body>
-    <% include ../partials/header %>
+    <% include ../../partials/components/header %>
 
     <div class="container buddy-system-container body-section">
       <div class="row justify-content-center">
@@ -57,10 +58,10 @@
         </div>
       </div>
 
-      <% include ../partials/footer %>
+      <% include ../../partials/components/footer %>
     </div>
 
-    <% include ../partials/scripts %>
+    <% include ../../partials/shared/scripts %>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/buddy-system.js"></script>
   </body>

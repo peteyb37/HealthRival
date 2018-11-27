@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico" />
-
-    <title>Health Rival</title>
-
-    <% include ../partials/styles %>
-    <link href="/css/goals.css" rel="stylesheet" />
+    <% include ../../partials/shared/head %> <% include
+    ../../partials/shared/styles %>
+    <link href="/css/main/goals.css" rel="stylesheet" />
   </head>
 
   <body>
-    <% include ../partials/header %>
+    <% include ../../partials/components/header %>
 
     <div class="container body-section goals-container">
       <h1 class="text-center">Goals</h1>
@@ -71,11 +61,11 @@
         <button id="add-goal-button" class="col-1 btn btn-info">Add</button>
       </div>
 
-      <% include ../partials/footer %>
+      <% include ../../partials/components/footer %>
     </div>
   </body>
 
-  <% include ../partials/scripts %>
+  <% include ../../partials/shared/scripts %>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="./js/goals.js"></script>
 </html>
