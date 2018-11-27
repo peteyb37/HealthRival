@@ -8,7 +8,7 @@ module.exports = {
     },
     nodemon: {
       script: 'index.js',
-      ignore: ['gulpfile.js', 'config/', 'node_modules/']
+      ignore: ['gulpfile.js', 'config/', 'node_modules/', 'views/']
     }
   }
 };

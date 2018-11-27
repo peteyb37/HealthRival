@@ -1,6 +1,69 @@
+var friendList = [];
+
 $(document).ready(function () {
-  
-  // {'city': 'Yuba City', 'state': 'California'},
+  setUpAutoComplete();
+
+  filterCites();
+
+  filterName();
+
+  filterGender();
+});
+
+function setUpAutoComplete() {
+  $("#city-input").autocomplete({
+    select: (event, ui) => {
+      event.preventDefault();
+      const { label, value: { city, state } } = ui.item;
+      $("#city-input").val(label);
+      axios.post('api/users/find', { city, state }).then((response) => {
+        friendList = response.data;
+        updateFriendList();
+
+        if (response.data.length === 0) {
+          $('#buddy-user-list').append(`
+            <h3 class="no-result text-center">We cannot find any users in ${label}</h3>
+          `)
+        } else {
+          response.data.forEach(user => {
+            addAFriendToList(user);
+          });
+        }
+      });
+    }
+  });
+}
+
+function autoComplete(filteredCities) {
+  $("#city-input").autocomplete({
+    source: function(request, resolve) {
+      resolve(filteredCities);
+    },
+  });
+}
+
+function addAFriendToList(user) {
+  const { firstName, lastName, city, state, avatar } = user;
+  $('#buddy-user-list').append(`
+    <div class="media">
+      <img class="mr-3" src=${avatar} alt="placeholder">
+      <div class="media-body">
+        <div class="info">
+          <h5>${firstName} ${lastName}</h5>
+          <h5>${city}, ${state}</h5>
+        </div>
+        <button class="btn btn-primary">Send Message</button>
+      </div>
+    </div>
+  `);
+}
+
+function updateFriendList() {
+  $('#buddy-user-list .media').remove();
+  $('#buddy-user-list .no-result').remove();
+}
+
+function filterCites() {
   var usaCities = [
   {'city': 'Abbeville', 'state': 'Louisiana'},
   {'city': 'Aberdeen', 'state': 'Maryland'},
@@ -5981,30 +6044,6 @@ $(document).ready(function () {
 ];
   var MAX_LENGTH = 10;
 
-  var friendList = [];
-
-  $("#city-input").autocomplete({
-    select: (event, ui) => {
-      event.preventDefault();
-      const { label, value: { city, state } } = ui.item;
-      $("#city-input").val(label);
-      axios.post('api/users/find', { city, state }).then((response) => {
-        friendList = response.data;
-        updateFriendList();
-
-        if (response.data.length === 0) {
-          $('#buddy-user-list').append(`
-            <h3 class="no-result text-center">We cannot find any users in ${label}</h3>
-          `)
-        } else {
-          response.data.forEach(user => {
-            addAFriendToList(user);
-          });
-        }
-      });
-    }
-  });
-
   $('#city-input').on('input', function (e) {
     var filteredCities = [];
     
@@ -6020,7 +6059,9 @@ $(document).ready(function () {
       autoComplete(filteredCities);
     }, 200);
   });
+}
 
+function filterName() {
   $('#buddy-system-name').on('input', function (e) {
     setTimeout(function () {
       updateFriendList();
@@ -6033,33 +6074,17 @@ $(document).ready(function () {
       }
     }, 200);
   });
-});
+}
 
-function autoComplete(filteredCities) {
-  $("#city-input").autocomplete({
-    source: function(request, resolve) {
-      resolve(filteredCities);
-    },
+function filterGender() {
+  $('#buddy-system-gender').on('change', function () {
+    const gender = $('#buddy-system-gender').val().toLowerCase();
+    updateFriendList();
+
+    for (const friend of friendList) {
+      if (friend.gender === gender || gender === 'all') {
+        addAFriendToList(friend);
+      }
+    }
   });
-}
-
-function addAFriendToList(user) {
-  const { firstName, lastName, city, state, avatar } = user;
-  $('#buddy-user-list').append(`
-    <div class="media">
-      <img class="mr-3" src=${avatar} alt="placeholder">
-      <div class="media-body">
-        <div class="info">
-          <h5>${firstName} ${lastName}</h5>
-          <h5>${city}, ${state}</h5>
-        </div>
-        <button class="btn btn-primary">Send Message</button>
-      </div>
-    </div>
-  `);
-}
-
-function updateFriendList() {
-  $('#buddy-user-list .media').remove();
-  $('#buddy-user-list .no-result').remove();
 }
