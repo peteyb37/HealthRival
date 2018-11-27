@@ -1,3 +1,5 @@
+Demo: https://healthrival.herokuapp.com/
+
 You need to install NodeJs from here https://nodejs.org/en/download/ first to run the project
 
 Then clone the project and open your favourite command line program to navigate to the project. Run npm install to install all dependecies
