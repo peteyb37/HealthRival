@@ -1,10 +1,11 @@
 const authetication = require('../services/authentication');
+const cloudinary = require('../services/cloudinary');
 const axios = require('axios');
 const keys = require('../config');
 
 const updateUser = (req, res, next) => {
   authetication
-    .updateUser(req.body)
+    .updateUser(req.body, res.session.userId)
     .then(() => {
       res.send(`update user values ${JSON.stringify(req.body)}`);
     })
@@ -56,10 +57,30 @@ const getUser = (req, res, next) => {
 };
 
 const updateUserProfile = (req, res, next) => {
+  if (req.file) {
+    cloudinary
+      .uploadFileAsync(req.file.path)
+      .then(result => {
+        updateProfile(req, res, next, result.url);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  } else {
+    updateProfile(req, res, next);
+  }
+};
+
+const updateProfile = (req, res, next, avatar) => {
+  let data = req.body;
+  if (avatar) {
+    data = { ...data, avatar };
+  }
+
+  const userId = req.session.userId;
   authetication
-    .updateUser(req.body)
+    .updateUser(data, userId)
     .then(() => {
-      const userId = req.session.userId;
       if (userId) {
         authetication
           .getUser(userId)

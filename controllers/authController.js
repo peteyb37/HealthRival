@@ -1,4 +1,5 @@
 const authetication = require('../services/authentication');
+const firebase = require('../services/firebase');
 
 const getSignIn = (req, res) => {
   if (req.session.userId) {
@@ -24,6 +25,8 @@ const getSignIn = (req, res) => {
 };
 
 const getSignUp = (req, res) => {
+  const DEFAULT_AVATAR =
+    'https://media.comicbook.com/2018/11/dragon-ball-super-broly-ssb-goku-1145923.jpeg';
   if (req.session.userId) {
     return res.redirect('/');
   }
@@ -35,8 +38,23 @@ const getSignUp = (req, res) => {
     if (email && password && password2) {
       authetication
         .signUp(email, password, password2)
-        .then(() => {
-          res.redirect('/signin');
+        .then(result => {
+          const userId = result.user.uid;
+          firebase
+            .firestore()
+            .collection('users')
+            .doc(userId)
+            .set({ avatar: DEFAULT_AVATAR })
+            .then(() => {
+              res.redirect('/signin');
+            })
+
+            .catch(error => {
+              console.log(error);
+              res.render('pages/signup', {
+                error
+              });
+            });
         })
         .catch(error => {
           res.render('pages/signup', {

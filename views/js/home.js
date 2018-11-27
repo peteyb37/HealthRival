@@ -25,7 +25,6 @@ function setPosition(position) {
   axios
     .get(`/user/position/${longitude}/${latitude}`)
     .then(response => {
-      console.log(response);
       const { city, state } = response.data;
       savePositionToUser(city, state);
     })

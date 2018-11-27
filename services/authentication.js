@@ -43,14 +43,13 @@ class Authentication {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(() => resolve())
+        .then(result => resolve(result))
         .catch(error => reject(error));
     });
   }
 
-  updateUser(values) {
+  updateUser(values, userId) {
     return new Promise((resolve, reject) => {
-      const userId = this.currentUser().uid;
       this.db
         .doc(userId)
         .update(values)

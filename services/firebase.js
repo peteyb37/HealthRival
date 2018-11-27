@@ -1,4 +1,7 @@
-const firebase = require('firebase');
+const firebase = require('firebase/app');
+require('firebase/firestore');
+require('firebase/auth');
+require('firebase/storage');
 
 const keys = require('../config');
 

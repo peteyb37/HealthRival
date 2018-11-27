@@ -15,15 +15,16 @@
       <form
         method="POST"
         action="/user/profile"
+        enctype="multipart/form-data"
         class="user-items row justify-content-center"
       >
         <div class="user-avatar-container col-sm-4">
           <img
             class="user-avatar"
-            src="../../images/test.jpg"
+            src="<%= user.avatar %>"
             alt="placeholder"
           />
-          <button id="avatarInputTrigger" class="btn btn-primary btn-block">
+          <button type="button" id="avatarInputTrigger" class="btn btn-primary btn-block">
             Change Avatar
           </button>
         </div>

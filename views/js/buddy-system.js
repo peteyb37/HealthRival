@@ -6044,10 +6044,10 @@ function autoComplete(filteredCities) {
 }
 
 function addAFriendToList(user) {
-  const { firstName, lastName, city, state } = user;
+  const { firstName, lastName, city, state, avatar } = user;
   $('#buddy-user-list').append(`
     <div class="media">
-      <img class="mr-3" src="./images/test.jpg" alt="placeholder">
+      <img class="mr-3" src=${avatar} alt="placeholder">
       <div class="media-body">
         <div class="info">
           <h5>${firstName} ${lastName}</h5>

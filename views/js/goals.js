@@ -1,15 +1,18 @@
-$(document).ready(function () {
+$(document).ready(function() {
   addSortable();
 
-  $('#add-goal-button').click(function () {
+  $('#add-goal-button').click(function() {
     var newGoal = $('#new-goal-input').val();
     var length = $('#goal-list .row').length;
 
-    $.post('api/goals/new', {
-      title: newGoal.trim(),
-      index: length + 1
-    }, (data) => {
-      $('#goal-list').append(`<div class="row align-items-center">
+    $.post(
+      'api/goals/new',
+      {
+        title: newGoal.trim(),
+        index: length + 1
+      },
+      data => {
+        $('#goal-list').append(`<div class="row align-items-center">
         <button onclick="deleteGoal('${data.id}')" class="col-1 btn btn-danger">
           Delete</button>
         <li class="col list-group-item">
@@ -26,33 +29,41 @@ $(document).ready(function () {
           </label>
         </div>
       </div>`);
-      $('#new-goal-input').val("");
-    });
+        $('#new-goal-input').val('');
+      }
+    );
   });
 });
 
 function deleteGoal(goalId) {
-  axios.delete(`/api/goals/${goalId}`).then(() => {
-    $(`#${goalId}`).remove();
-  }).catch(error => console.log(error));
+  axios
+    .delete(`/api/goals/${goalId}`)
+    .then(() => {
+      $(`#${goalId}`).remove();
+    })
+    .catch(error => console.log(error));
 }
 
-function updateGoal(goalId, value) {
-  axios.patch(`/api/goals/${goalId}`, {
-    done: value
-  }).then(() => {
-    const text = value ? 'Done' : 'Not Done';
-    $(`#${goalId} .form-check-label`).text(text);
-  }).catch((error) => {
-    console.log(error);
-  });
+function updateGoal(goalId) {
+  const value = $(`#${goalId} .form-check-input`).is(':checked');
+  axios
+    .patch(`/api/goals/${goalId}`, {
+      done: value
+    })
+    .then(() => {
+      const text = value ? 'Done' : 'Not Done';
+      $(`#${goalId} .form-check-label`).text(text);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 function addSortable() {
-  $("#goal-list").sortable({
+  $('#goal-list').sortable({
     stop: updatePosition
   });
-  $("#goal-list").disableSelection();
+  $('#goal-list').disableSelection();
 }
 
 function updatePosition() {
