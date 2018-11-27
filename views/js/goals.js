@@ -12,24 +12,34 @@ $(document).ready(function() {
         index: length + 1
       },
       data => {
-        $('#goal-list').append(`<div class="row align-items-center">
-        <button onclick="deleteGoal('${data.id}')" class="col-1 btn btn-danger">
-          Delete</button>
-        <li class="col list-group-item">
-          ${data.title}
-        </li>
-        <div class="col-2 form-check">
-          <input class="form-check-input"
-          type="checkbox"
-          value="bike"
-          id="defaultCheck1">
-          <label class="form-check-label"
-          for="defaultCheck1">
-            Not Done
-          </label>
-        </div>
-      </div>`);
+        $('#goal-list').append(`<div id=${
+          data.id
+        } class="row align-items-center">
+          <button class="col-1 btn btn-danger">
+            Delete</button>
+          <li class="col list-group-item">
+            ${data.title}
+          </li>
+          <div class="col-2 form-check">
+            <input class="form-check-input"
+            type="checkbox"
+            value="bike"
+            id="defaultCheck1">
+            <label class="form-check-label"
+            for="defaultCheck1">
+              Not Done
+            </label>
+          </div>
+        </div>`);
         $('#new-goal-input').val('');
+
+        $('#goal-list').on('click', `#${data.id} .btn-danger`, () => {
+          deleteGoal(data.id);
+        });
+
+        $('#goal-list').on('change', `#${data.id} .form-check-input`, () => {
+          updateGoal(data.id);
+        });
       }
     );
   });
