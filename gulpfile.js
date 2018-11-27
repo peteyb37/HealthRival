@@ -1,28 +1,26 @@
 const gulp = require('gulp');
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const nodemon = require('gulp-nodemon');
 
+const config = require('./config/gulp');
 
-gulp.task('default', ['browser-sync'], function () {});
-
-gulp.task('nodemon', function (cb) {
-  let started = false;
-
-  return nodemon({
-    script: 'index.js'
-  }).on('start', function () {
-    if (!started) {
+//SERVER
+gulp.task('server', function(cb) {
+  var called = false;
+  return nodemon(config.plugins.nodemon).on('start', function() {
+    if (!called) {
+      called = true;
       cb();
-      started = true;
     }
   });
 });
 
-gulp.task('browser-sync', ['nodemon'], function () {
-  browserSync.init(null, {
-    proxy: "http://localhost:5000",
-    files: ["views/**/*.*"],
-    browser: "google chrome",
-    port: 7000,
-  });
-});
+// BROWSER-SYNC
+function browserSyncInit(done) {
+  browserSync.init(config.plugins.browserSync);
+  done();
+}
+gulp.task('browser-sync', browserSyncInit);
+
+//DEFAULT
+gulp.task('default', gulp.series('server', 'browser-sync'));
