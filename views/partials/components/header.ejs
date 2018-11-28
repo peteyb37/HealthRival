@@ -3,54 +3,49 @@
           aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/">Health Rival</a>
+  <a data-i18n="app-name | on header"  class="navbar-brand" href="/">Health Rival</a>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a <% if (page==='home' ) { %> class="nav-link active"
+        <a data-i18n="home | on header" <% if (page==='home' ) { %> class="nav-link active"
           <% } else { %>
-          <% } %> class="nav-link" href="/">Home</a>
+          <% } %> class="nav-link" href="/"></a>
       </li>
       <li class="nav-item">
-        <a <% if (page==='competition' ) { %> class="nav-link active"
+        <a data-i18n="competition | on header"<% if (page==='competition' ) { %> class="nav-link active"
           <% } else { %>
-          <% } %> class="nav-link" href="/competition">Competition</a>
+          <% } %> class="nav-link" href="/competition"></a>
       </li>
       <li class="nav-item">
-        <a <% if (page==='buddy-system' ) { %> class="nav-link active"
+        <a data-i18n="buddy system | on header" <% if (page==='buddy-system' ) { %> class="nav-link active"
           <% } else { %>
-          <% } %> class="nav-link" href="/buddy-system">Buddy System</a>
+          <% } %> class="nav-link" href="/buddy-system"></a>
       </li>
       <li class="nav-item">
-        <a <% if (page==='forums' ) { %> class="nav-link active"
+        <a data-i18n="forums | on header" <% if (page==='forums' ) { %> class="nav-link active"
           <% } else { %>
-          <% } %> class="nav-link" href="/forums">Forums</a>
+          <% } %> class="nav-link" href="/forums"></a>
       </li>
       <li class="nav-item">
-        <a <% if (page==='goals' ) { %> class="nav-link active"
+        <a  data-i18n="goals | on header"<% if (page==='goals' ) { %> class="nav-link active"
           <% } else { %>
-          <% } %> class="nav-link" href="/goals">Goals</a>
+          <% } %> class="nav-link" href="/goals"></a>
       </li>
       <li class="nav-item">
-        <a <% if (page==='schedule' ) { %> class="nav-link active"
+        <a data-i18n="schedule | on header" <% if (page==='schedule' ) { %> class="nav-link active"
           <% } else { %>
-          <% } %> class="nav-link" href="/schedule">Schedule</a>
+          <% } %> class="nav-link" href="/schedule"></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">User</a>
+        <a data-i18n="user | on header" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/user/profile">My Profile</a>
-          <a class="dropdown-item" href="/">Friends</a>
-          <a class="dropdown-item" href="/user/settings">Settings</a>
-          <a class="dropdown-item" href="/signout">Sign Out</a>
+          <a data-i18n="my profile | on header" class="dropdown-item" href="/user/profile"></a>
+          <a data-i18n="friends | on header" class="dropdown-item" href="/">Friends</a>
+          <a data-i18n="settings | on header" class="dropdown-item" href="/user/settings"></a>
+          <a data-i18n="sign out | on header" class="dropdown-item" href="/signout"></a>
         </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>

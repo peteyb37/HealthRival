@@ -3,6 +3,20 @@ const cloudinary = require('../services/cloudinary');
 const axios = require('axios');
 const keys = require('../config');
 
+const getUserInfo = (req, res, next) => {
+  const userId = req.session.userId;
+  if (userId) {
+    authetication
+      .getUser(userId)
+      .then(user => {
+        res.send(user);
+      })
+      .catch(error => next(error));
+  } else {
+    next(new Error('Cannot find userId from session'));
+  }
+};
+
 const updateUser = (req, res, next) => {
   authetication
     .updateUser(req.body, req.session.userId)
@@ -99,9 +113,42 @@ const updateProfile = (req, res, next, avatar) => {
 };
 
 const getSettings = (req, res, next) => {
-  res.render('pages/user/settings', {
-    page: 'user-settings'
-  });
+  const userId = req.session.userId;
+  if (userId) {
+    authetication
+      .getUser(userId)
+      .then(user => {
+        res.render('pages/user/settings', {
+          page: 'user-settings',
+          user
+        });
+      })
+      .catch(error => next(error));
+  } else {
+    next(new Error('Cannot find userId from session'));
+  }
+};
+
+const updateSettings = (req, res, next) => {
+  const userId = req.session.userId;
+  authetication
+    .updateUser(req.body, userId)
+    .then(() => {
+      if (userId) {
+        authetication
+          .getUser(userId)
+          .then(user => {
+            res.render('pages/user/settings', {
+              page: 'user-settings',
+              user
+            });
+          })
+          .catch(error => next(error));
+      } else {
+        next(new Error('Cannot find userId from session'));
+      }
+    })
+    .catch(error => next(error));
 };
 
 module.exports = {
@@ -109,5 +156,7 @@ module.exports = {
   getUserPosition,
   getUser,
   getSettings,
-  updateUserProfile
+  updateUserProfile,
+  updateSettings,
+  getUserInfo
 };

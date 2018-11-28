@@ -17,14 +17,17 @@ const imageFilter = function(req, file, cb) {
 
 const uploader = multer({ storage: storage, fileFilter: imageFilter });
 
+routes.get('/api/info', controller.getUserInfo);
+
 routes.patch('/update', controller.updateUser);
 routes.get('/profile', controller.getUser);
 routes.post(
-  '/profile',
+  '/profile/update',
   uploader.single('avatar'),
   controller.updateUserProfile
 );
 routes.get('/settings', controller.getSettings);
+routes.post('/settings/update', controller.updateSettings);
 routes.get('/position/:longitude/:latitude', controller.getUserPosition);
 
 module.exports = routes;

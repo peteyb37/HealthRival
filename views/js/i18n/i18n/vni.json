@@ -1,0 +1,25 @@
+{
+  "@metadata": {
+    "authors": ["Doanh"],
+    "last-updated": "2016-10-25",
+    "locale": "en"
+  },
+  "welcome": "Welcome, $1!",
+  "letter": "A letter from $1! {{GENDER:$2|He|She}} says:",
+  "letters": "You have $1 {{PLURAL:$1|letter|letters}}",
+  "copyright": "{{SITENAME}}. All rights reserved.",
+  "about": "{{link:About {{SITENAME}}|localhost/about?locale=en}}",
+
+  "app-name | on header": "Health Rival",
+  "home | on header": "Trang Chủ",
+  "competition | on header": "Thi Đấu",
+  "buddy system | on header": "Tìm Bạn",
+  "forums | on header": "Forums",
+  "goals | on header": "Mục Tiêu",
+  "schedule | on header": "Lịch",
+  "user | on header": "Bạn",
+  "my profile | on header": "Thông Tin",
+  "friends | on header": "Bạn Bè",
+  "settings | on header": "Cài Đặt",
+  "sign out | on header": "Thoát Ra"
+}

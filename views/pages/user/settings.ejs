@@ -13,28 +13,29 @@
       <h1 class="text-center">Settings</h1>
 
       <div class="user-items row justify-content-center">
-        <div class="col-sm-8">
+        <form method="POST" action="/user/settings/update" class="col-sm-8">
           <div class="row">
             <label for="gender" class="col-sm-2 col-form-label">Language</label>
             <div class="col">
-              <select class="form-control" id="gender">
-                <option value="en">English</option>
-                <option value="vni">Tiếng Việt</option>
+              <select name="language" class="form-control" id="language">
+                <option <%= !user.language || user.language === "en" ? "selected" : "" %> value="en">English</option>
+                <option <%= user.language === "vni" ? "selected" : "" %> value="vni">Tiếng Việt</option>
               </select>
             </div>
           </div>
 
           <div class="row justify-content-center">
-            <button disabled type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
               Update
             </button>
           </div>
-        </div>
+        </form>
       </div>
 
       <% include ../../partials/components/footer %>
     </div>
 
     <% include ../../partials/shared/scripts %>
+    <script src="/js/user/settings.js"></script>
   </body>
 </html>

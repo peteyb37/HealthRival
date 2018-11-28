@@ -1,0 +1,25 @@
+{
+  "@metadata": {
+    "authors": ["Doanh"],
+    "last-updated": "2016-10-25",
+    "locale": "en"
+  },
+  "welcome": "Welcome, $1!",
+  "letter": "A letter from $1! {{GENDER:$2|He|She}} says:",
+  "letters": "You have $1 {{PLURAL:$1|letter|letters}}",
+  "copyright": "{{SITENAME}}. All rights reserved.",
+  "about": "{{link:About {{SITENAME}}|localhost/about?locale=en}}",
+
+  "app-name | on header": "Health Rival",
+  "home | on header": "Home",
+  "competition | on header": "Competition",
+  "buddy system | on header": "Buddy System",
+  "forums | on header": "Forums",
+  "goals | on header": "Goals",
+  "schedule | on header": "Schedule",
+  "user | on header": "User",
+  "my profile | on header": "My Profile",
+  "friends | on header": "Friends",
+  "settings | on header": "Settings",
+  "sign out | on header": "Sign Out"
+}
