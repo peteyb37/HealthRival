@@ -21,5 +21,22 @@
   "my profile | on header": "Thông Tin",
   "friends | on header": "Bạn Bè",
   "settings | on header": "Cài Đặt",
-  "sign out | on header": "Thoát Ra"
+  "sign out | on header": "Thoát Ra",
+
+  "settings | on settings": "Cài Đặt",
+  "language | on settings": "Ngôn Ngữ",
+  "update button | on settings": "Cập Nhật",
+
+  "user profile | on user profile page": "Thông Tin",
+  "change avatar | on user profile page": "Đổi Ảnh Đại Diện",
+  "first name | on user profile page": "Tên",
+  "last name | on user profile page": "Họ",
+  "gender | on user profile page": "Giới Tính",
+  "male | on user profile page": "Name",
+  "female | on user profile page": "Nữ",
+  "unspecified | on user profile page": "Không Tiết Lộ",
+  "city | on user profile page": "Thành Phố",
+  "state | on user profile page": "Bang",
+  "locate me | on user profile page": "Định Vị Tôi",
+  "update | on user profile page": "Cập Nhật"
 }

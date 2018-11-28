@@ -10,7 +10,7 @@
     <% include ../../partials/components/header %>
 
     <div class="user-profile-container container body-section">
-      <h1 class="text-center">User Profile</h1>
+      <h1 data-i18n="user profile | on user profile page" class="text-center"></h1>
 
       <form
         method="POST"
@@ -24,8 +24,12 @@
             src="<%= user.avatar %>"
             alt="placeholder"
           />
-          <button type="button" id="avatarInputTrigger" class="btn btn-primary btn-block">
-            Change Avatar
+          <button 
+            data-i18n="change avatar | on user profile page" 
+            type="button" 
+            id="avatarInputTrigger" 
+            class="btn btn-primary btn-block"
+          >
           </button>
         </div>
         <div class="col">
@@ -38,9 +42,11 @@
           />
 
           <div class="row">
-            <label class="col-sm-2 col-form-label" for="inputEmail"
-              >First Name</label
-            >
+            <label 
+              data-i18n="first name | on user profile page" 
+              class="col-sm-2 col-form-label" 
+              for="inputEmail"
+            ></label>
             <div class="col">
               <input
                 name="firstName"
@@ -52,9 +58,11 @@
           </div>
 
           <div class="row">
-            <label class="col-sm-2 col-form-label" for="inputEmail"
-              >Last Name</label
-            >
+            <label 
+              data-i18n="last name | on user profile page"  
+              class="col-sm-2 col-form-label" 
+              for="inputEmail"
+            ></label>
             <div class="col">
               <input
                 name="lastName"
@@ -66,7 +74,7 @@
           </div>
 
           <div class="row">
-            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+            <label data-i18n="gender | on user profile page"  for="gender" class="col-sm-2 col-form-label"></label>
             <div class="col">
               <select name="gender" class="form-control" id="gender">
                   <%
@@ -78,7 +86,10 @@
                       var selected = ( user.gender === options[i] ) ? "selected" : "";
                     }
                   %>
-                    <option value="<%=options[ i ] %>" <%=selected %>><%= options[i] %></option>
+                    <option 
+                      data-i18n="<%= options[i] %> | on user profile page" 
+                      value="<%=options[i] %>" <%= selected %>
+                    ></option>
                   <%}%>
               </select>
             </div>
@@ -86,7 +97,13 @@
 
           <div class="row align-items-center">
             <div class="col row">
-              <label class="col-sm-2 col-form-label" for="inputEmail">City</label>
+              <label 
+                data-i18n="city | on user profile page" 
+                class="col-sm-2 col-form-label" 
+                for="inputEmail"
+              >
+                City
+              </label>
               <div class="col">
                 <input
                   readonly
@@ -100,9 +117,11 @@
             </div>
 
             <div class="col row">
-              <label class="col-sm-2 col-form-label" for="inputEmail"
-                >State</label
-              >
+              <label 
+                data-i18n="state | on user profile page" 
+                class="col-sm-2 col-form-label" 
+                for="inputEmail"
+              ></label>
               <div class="col">
                 <input
                   readonly
@@ -115,12 +134,12 @@
               </div>
             </div>
 
-            <div id="locate-button" class="col-sm-2">Locate Me</div>
+            <div data-i18n="locate me | on user profile page" id="locate-button" class="col-sm-2"></div>
             <div class="loader"></div> 
           </div>
 
           <div class="row justify-content-center">
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button data-i18n="update | on user profile page" type="submit" class="btn btn-primary"></button>
           </div>
         </div>
       </form>

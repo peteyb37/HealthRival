@@ -21,5 +21,22 @@
   "my profile | on header": "My Profile",
   "friends | on header": "Friends",
   "settings | on header": "Settings",
-  "sign out | on header": "Sign Out"
+  "sign out | on header": "Sign Out",
+
+  "settings | on settings": "Settings",
+  "language | on settings": "Language",
+  "update button | on settings": "Update",
+
+  "user profile | on user profile page": "User Profile",
+  "change avatar | on user profile page": "Change Avatar",
+  "first name | on user profile page": "First Name",
+  "last name | on user profile page": "Last Name",
+  "gender | on user profile page": "Gender",
+  "male | on user profile page": "Male",
+  "female | on user profile page": "Female",
+  "unspecified | on user profile page": "Unspecified",
+  "city | on user profile page": "City",
+  "state | on user profile page": "State",
+  "locate me | on user profile page": "Locate Me",
+  "update | on user profile page": "Update"
 }

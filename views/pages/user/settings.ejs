@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ../../partials/shared/head %> <% include
-    ../../partials/shared/styles %>
+    <% include ../../partials/shared/head %> 
+    <% include ../../partials/shared/styles %>
     <link href="/css/user/user.css" rel="stylesheet" />
   </head>
 
@@ -10,12 +10,12 @@
     <% include ../../partials/components/header %>
 
     <div class="container body-section">
-      <h1 class="text-center">Settings</h1>
+      <h1 data-i18n="settings | on settings" class="text-center"></h1>
 
       <div class="user-items row justify-content-center">
         <form method="POST" action="/user/settings/update" class="col-sm-8">
           <div class="row">
-            <label for="gender" class="col-sm-2 col-form-label">Language</label>
+            <label data-i18n="language | on settings" for="gender" class="col-sm-2 col-form-label"></label>
             <div class="col">
               <select name="language" class="form-control" id="language">
                 <option <%= !user.language || user.language === "en" ? "selected" : "" %> value="en">English</option>
@@ -25,8 +25,7 @@
           </div>
 
           <div class="row justify-content-center">
-            <button type="submit" class="btn btn-primary">
-              Update
+            <button data-i18n="update button | on settings" type="submit" class="btn btn-primary">
             </button>
           </div>
         </form>
