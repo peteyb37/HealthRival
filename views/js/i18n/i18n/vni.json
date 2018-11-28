@@ -1,8 +1,8 @@
 {
   "@metadata": {
     "authors": ["Doanh"],
-    "last-updated": "2016-10-25",
-    "locale": "en"
+    "last-updated": "2018-11-27",
+    "locale": "vni"
   },
   "welcome": "Welcome, $1!",
   "letter": "A letter from $1! {{GENDER:$2|He|She}} says:",

@@ -1,7 +1,7 @@
 {
   "@metadata": {
     "authors": ["Doanh"],
-    "last-updated": "2016-10-25",
+    "last-updated": "2018-11-27",
     "locale": "en"
   },
   "welcome": "Welcome, $1!",
