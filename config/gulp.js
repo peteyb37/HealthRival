@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
     browserSync: {
-      proxy: 'http://localhost:5000',
+      proxy: 'http://localhost:8080',
       files: ['views/**/*.*'],
       browser: 'google chrome',
       port: 7000

@@ -1,0 +1,59 @@
+.badge-secondary {
+  background-color: #6c757d;
+}
+
+.list-group-item {
+  justify-content: space-between;
+}
+
+.competition-container .row {
+  margin-top: 30px;
+}
+
+.rep-input-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.rep-input-container input {
+  margin-right: 10px;
+}
+
+.exercises-container {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  height: 290px;
+  overflow: scroll;
+  position: relative;
+}
+
+.exercises-container .list-group-item {
+  border: none;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+.exercises-container .list-group-item:hover {
+  background-color: rgba(0, 0, 0, 0.125);
+}
+
+.exercises-container .form-group {
+  padding: 10px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+
+.exercises-container .form-group .icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.exercises-container .form-group input {
+  padding-left: 30px;
+}

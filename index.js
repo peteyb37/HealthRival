@@ -35,4 +35,4 @@ app.use('/user', authMiddlewares.requiredAuth, userRoutes);
 app.use('/api', authMiddlewares.requiredAuth, goalRoutes);
 app.use('/api', authMiddlewares.requiredAuth, buddyRoutes);
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 8080);

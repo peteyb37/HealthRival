@@ -7,8 +7,17 @@ const getHome = (req, res) => {
 };
 
 const getCompetition = (req, res) => {
+  const exercises = [
+    { id: 1, name: 'Squats' },
+    { id: 2, name: 'Deadlift' },
+    { id: 3, name: 'Bench Press' },
+    { id: 4, name: 'Incline Curl' },
+    { id: 5, name: 'Running' },
+    { id: 6, name: 'Leg Press' }
+  ];
   res.render('pages/main/competition', {
-    page: 'competition'
+    page: 'competition',
+    exercises
   });
 };
 
